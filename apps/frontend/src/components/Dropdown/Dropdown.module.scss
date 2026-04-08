@@ -1,0 +1,64 @@
+/* Универсальный dropdown-контейнер:
+   триггер задает точку привязки, панель раскрывается строго под ним. */
+.dropdown {
+  position: relative;
+  display: inline-flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.trigger {
+  display: inline-flex;
+  min-width: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.trigger[aria-disabled="true"] {
+  cursor: default;
+}
+
+.panel {
+  position: absolute;
+  top: calc(100% + var(--dropdown-offset, 8px));
+  left: 50%;
+  translate: -50% 0;
+  z-index: 30;
+  min-width: max-content;
+  padding: 0.35rem;
+  border: 1px solid var(--color-border-strong);
+  border-radius: var(--radius-lg);
+  background:
+    linear-gradient(
+      180deg,
+      color-mix(in srgb, var(--color-bg-elevated) 92%, transparent),
+      color-mix(in srgb, var(--color-bg-surface) 96%, transparent)
+    );
+  box-shadow:
+    0 18px 40px rgba(0, 0, 0, 0.18),
+    0 2px 8px rgba(0, 0, 0, 0.08);
+  transform-origin: top center;
+  backdrop-filter: blur(16px);
+}
+
+.alignLeft {
+  left: 0;
+  translate: 0 0;
+}
+
+.alignRight {
+  left: auto;
+  right: 0;
+  translate: 0 0;
+}
+
+@supports not (color: color-mix(in srgb, white 50%, black)) {
+  .panel {
+    background: var(--color-bg-surface);
+  }
+}

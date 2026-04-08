@@ -1,0 +1,31 @@
+/* Общий page-layout рабочего пространства.
+   Управляет верхним ритмом страниц с заголовком и без него. */
+.page {
+  display: grid;
+  gap: var(--workspace-section-gap);
+  min-height: 100%;
+  padding: 0 0 var(--workspace-padding);
+  align-content: start;
+}
+
+.header {
+  display: grid;
+  gap: 0.25rem;
+}
+
+.content {
+  display: grid;
+  gap: var(--workspace-section-gap);
+  align-content: start;
+}
+
+.header {
+  display: grid;
+  gap: 0.25rem;
+}
+
+.content {
+  display: grid;
+  gap: var(--workspace-section-gap);
+  align-content: start;
+}

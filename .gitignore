@@ -1,0 +1,32 @@
+node_modules
+.turbo
+.next
+.next-dev
+.next-prod
+.next-types
+dist
+coverage
+.DS_Store
+.env
+.env.*
+!.env.example
+apps/backend/openapi/schema.json
+
+# Локальные кеши и промежуточные артефакты
+.pnpm-store
+**/.turbo
+**/.turbo/**
+*.tsbuildinfo
+**/*.tsbuildinfo
+*.log
+
+# Локальные инструкции/заметки для ИИ-ассистентов
+AGENTS.md
+agents.md
+agent.md
+codex.md
+CODEX.md
+ai.md
+AI.md
+claude.md
+CLAUDE.md

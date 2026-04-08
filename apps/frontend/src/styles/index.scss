@@ -1,0 +1,6 @@
+/* Точка входа всех глобальных стилей frontend. Порядок подключения здесь важен. */
+@use "./reset.scss";
+@use "./tokens.scss";
+@use "./base.scss";
+@use "./typography.scss";
+@use "./utilities.scss";

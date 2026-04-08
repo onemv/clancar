@@ -1,0 +1,25 @@
+{
+  "name": "clan-car-auction",
+  "private": true,
+  "packageManager": "pnpm@10.26.1",
+  "scripts": {
+    "postinstall": "pnpm --filter @clancar/backend prisma:generate",
+    "dev": "node scripts/dev.mjs",
+    "dev:stop": "node scripts/stop-project.mjs",
+    "dev:stop:all": "node scripts/stop-project.mjs --include-infra",
+    "dev:frontend": "pnpm --filter @clancar/frontend dev",
+    "dev:backend": "pnpm --filter @clancar/backend dev",
+    "build": "turbo run build",
+    "lint": "turbo run lint",
+    "typecheck": "turbo run typecheck",
+    "test": "turbo run test",
+    "openapi:export": "pnpm --filter @clancar/backend openapi:export",
+    "generate:api": "pnpm --filter @clancar/backend openapi:export && pnpm --filter @clancar/api-client generate",
+    "dev:infra": "docker compose -f infra/docker/compose.yml up -d",
+    "dev:infra:down": "docker compose -f infra/docker/compose.yml down"
+  },
+  "devDependencies": {
+    "turbo": "latest",
+    "typescript": "latest"
+  }
+}

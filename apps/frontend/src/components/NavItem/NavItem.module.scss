@@ -1,0 +1,80 @@
+/* Пункт навигации sidebar. */
+.navItem {
+  --nav-item-icon-size: 1.125rem;
+  --nav-item-inline-padding: 0.72rem;
+  --nav-item-block-padding: 0.62rem;
+  --nav-item-size: calc(var(--nav-item-icon-size) + (var(--nav-item-block-padding) * 2));
+  position: relative;
+  display: block;
+  min-height: var(--nav-item-size);
+  padding: var(--nav-item-block-padding) var(--nav-item-inline-padding);
+  border: 1px solid transparent;
+  border-radius: var(--radius-sm);
+  color: var(--color-text-secondary);
+  text-decoration: none;
+  transition:
+    background 160ms ease,
+    color 160ms ease,
+    border-color 160ms ease;
+}
+
+.navItem:hover {
+  color: var(--color-accent);
+  border-color: var(--color-accent);
+}
+
+.active {
+  background: var(--color-accent-soft);
+  color: var(--color-text-primary);
+}
+
+.rail {
+  position: absolute;
+  top: 50%;
+  left: var(--nav-item-inline-padding);
+  right: var(--nav-item-inline-padding);
+  display: flex;
+  align-items: center;
+  column-gap: 0.6rem;
+  min-width: 0;
+  transform: translateY(-50%);
+  transition:
+    left 240ms cubic-bezier(0.4, 0, 0.2, 1),
+    right 240ms cubic-bezier(0.4, 0, 0.2, 1),
+    column-gap 240ms cubic-bezier(0.4, 0, 0.2, 1),
+    transform 240ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.collapsed .rail {
+  left: 50%;
+  right: auto;
+  column-gap: 0;
+  transform: translate(-50%, -50%);
+}
+
+.icon {
+  display: grid;
+  flex-shrink: 0;
+  width: var(--nav-item-icon-size);
+  height: var(--nav-item-icon-size);
+  place-items: center;
+  line-height: 0;
+}
+
+.icon :global(svg) {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.labelWrap {
+  min-width: 0;
+  overflow: hidden;
+}
+
+.label {
+  display: block;
+  white-space: nowrap;
+  font-size: 0.82rem;
+  font-weight: 500;
+}

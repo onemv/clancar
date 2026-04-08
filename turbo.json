@@ -1,0 +1,50 @@
+{
+  "$schema": "https://turbo.build/schema.json",
+  "tasks": {
+    "dev": {
+      "cache": false,
+      "persistent": true
+    },
+    "build": {
+      "dependsOn": [
+        "^build"
+      ],
+      "outputs": [
+        "dist/**",
+        ".next/**"
+      ]
+    },
+    "lint": {
+      "dependsOn": [
+        "^lint"
+      ]
+    },
+    "typecheck": {
+      "dependsOn": [
+        "^typecheck"
+      ],
+      "outputs": []
+    },
+    "test": {
+      "dependsOn": [
+        "^test"
+      ],
+      "outputs": [
+        "coverage/**"
+      ]
+    },
+    "openapi:export": {
+      "outputs": [
+        "openapi/schema.json"
+      ]
+    },
+    "generate": {
+      "dependsOn": [
+        "^generate"
+      ],
+      "outputs": [
+        "src/generated/**"
+      ]
+    }
+  }
+}

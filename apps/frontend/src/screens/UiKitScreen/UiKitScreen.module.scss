@@ -1,0 +1,268 @@
+/* Экран UI Kit: каталог примитивов по сценариям использования. */
+
+.kicker {
+  color: var(--color-accent);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.title {
+  margin: 0;
+  font-size: clamp(1.45rem, 2.2vw, 2.2rem);
+  line-height: 1;
+  letter-spacing: -0.05em;
+}
+
+.description {
+  max-width: 52rem;
+  color: var(--color-text-secondary);
+  font-size: 0.88rem;
+  line-height: 1.5;
+}
+
+.layout {
+  display: grid;
+  gap: var(--workspace-section-gap);
+}
+
+@media (min-width: 1100px) {
+  .layout {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  }
+}
+
+.group {
+  display: grid;
+  gap: 1rem;
+  padding: var(--workspace-surface-padding);
+  border-radius: var(--radius-lg);
+  align-content: start;
+}
+
+.groupWide {
+  grid-column: 1 / -1;
+}
+
+.groupHeader {
+  display: grid;
+  gap: 0.35rem;
+}
+
+.groupTitle {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+.groupDescription {
+  margin: 0;
+  max-width: 42rem;
+  color: var(--color-text-secondary);
+  font-size: 0.82rem;
+  line-height: 1.45;
+}
+
+.groupBody {
+  display: grid;
+  gap: 1rem;
+}
+
+.controlsPanel {
+  display: grid;
+  gap: 0.9rem;
+}
+
+@media (min-width: 900px) {
+  .controlsPanel {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) auto;
+    align-items: end;
+  }
+}
+
+.controlSection {
+  display: grid;
+  gap: 0.55rem;
+}
+
+.controlTitle {
+  color: var(--color-text-primary);
+  font-size: 0.82rem;
+  font-weight: 600;
+}
+
+.controlMeta {
+  display: grid;
+  gap: 0.2rem;
+  align-content: start;
+  min-width: 10rem;
+}
+
+.metaLabel {
+  color: var(--color-text-muted);
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+
+.metaValue {
+  color: var(--color-text-primary);
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+.controlsGrid {
+  display: grid;
+  gap: 0.85rem;
+}
+
+@media (min-width: 900px) {
+  .controlsGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.demoCard {
+  display: grid;
+  gap: 0.75rem;
+  min-width: 0;
+  padding: 0.9rem;
+  border: 1px solid var(--color-border-soft);
+  border-radius: var(--radius-lg);
+  background: color-mix(in srgb, var(--color-bg-surface) 82%, transparent);
+}
+
+.demoCardHeader {
+  display: grid;
+  gap: 0.2rem;
+}
+
+.demoCardTitle {
+  color: var(--color-text-primary);
+  font-size: 0.86rem;
+  font-weight: 600;
+}
+
+.demoCardHint {
+  margin: 0;
+  color: var(--color-text-muted);
+  font-size: 0.76rem;
+  line-height: 1.4;
+}
+
+.demoCardBody {
+  display: grid;
+  gap: 0.75rem;
+  min-width: 0;
+}
+
+.stack {
+  display: grid;
+  gap: 0.85rem;
+}
+
+.row,
+.inline,
+.buttonRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  align-items: center;
+}
+
+.dropdownTrigger {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 2.4rem;
+  padding: 0.58rem 0.85rem;
+  border: 1px solid var(--color-border-strong);
+  border-radius: var(--radius-md);
+  background: var(--color-bg-elevated);
+  color: var(--color-text-primary);
+  font-size: 0.86rem;
+  font-weight: 600;
+  line-height: 1;
+  white-space: nowrap;
+  transition:
+    border-color 160ms ease,
+    background-color 160ms ease,
+    color 160ms ease;
+}
+
+.dropdownTrigger:hover {
+  border-color: var(--color-accent);
+  background: var(--color-bg-surface);
+  color: var(--color-accent);
+}
+
+.dropdownMenu {
+  display: grid;
+  gap: 0.25rem;
+}
+
+.dropdownItem {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  min-height: 2.2rem;
+  padding: 0.5rem 0.65rem;
+  border: 0;
+  border-radius: var(--radius-md);
+  background: transparent;
+  color: var(--color-text-primary);
+  font: inherit;
+  font-size: 0.82rem;
+  text-align: left;
+  white-space: nowrap;
+  cursor: pointer;
+  transition:
+    background-color 140ms ease,
+    color 140ms ease;
+}
+
+.dropdownItem:hover {
+  background: var(--color-accent-soft);
+  color: var(--color-accent);
+}
+
+.toggleChip {
+  min-height: 2.2rem;
+  padding: 0.52rem 0.8rem;
+  border: 1px solid var(--color-border-soft);
+  border-radius: var(--radius-md);
+  background: transparent;
+  color: var(--color-text-secondary);
+  font: inherit;
+  text-transform: lowercase;
+  cursor: pointer;
+}
+
+.toggleChipActive {
+  border-color: var(--color-accent);
+  background: var(--color-accent-soft);
+  color: var(--color-text-primary);
+}
+
+.navGrid {
+  display: grid;
+  gap: 0.7rem;
+}
+
+@media (min-width: 1040px) {
+  .navGrid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+.navPreview {
+  width: min(100%, 15rem);
+  pointer-events: none;
+}
+
+.navPreviewCollapsed {
+  width: 4.8rem;
+}

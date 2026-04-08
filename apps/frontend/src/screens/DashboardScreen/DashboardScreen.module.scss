@@ -1,0 +1,77 @@
+/* Стили стартового dashboard-экрана. */
+.content {
+  display: grid;
+  gap: var(--workspace-section-gap);
+}
+
+@media (min-width: 1280px) {
+  .content {
+    /* На больших экранах dashboard становится двухколоночным. */
+    grid-template-columns: minmax(0, 1.3fr) minmax(320px, 0.78fr);
+    align-items: start;
+  }
+}
+
+.hero {
+  /* Главный вводный блок слева. */
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+  min-width: 0;
+  padding: var(--workspace-surface-padding);
+  border-radius: var(--radius-lg);
+  min-height: clamp(11rem, 24vh, 15rem);
+  justify-content: flex-end;
+}
+
+.kicker {
+  margin: 0;
+  color: var(--color-accent);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.title {
+  margin: 0;
+  max-width: 12ch;
+  color: var(--color-text-primary);
+  font-size: clamp(1.4rem, 2.2vw, 2.45rem);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.05em;
+}
+
+.description {
+  max-width: 58ch;
+  margin: 0;
+  color: var(--color-text-secondary);
+  font-size: 0.84rem;
+  line-height: 1.45;
+}
+
+.placeholder {
+  /* Временный правый блок-заглушка под будущие модули dashboard. */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 0.45rem;
+  min-width: 0;
+  padding: var(--workspace-surface-padding);
+  border-radius: var(--radius-lg);
+  min-height: clamp(11rem, 24vh, 15rem);
+}
+
+.placeholderLabel {
+  color: var(--color-text-primary);
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.placeholderText {
+  margin: 0;
+  color: var(--color-text-secondary);
+  font-size: 0.82rem;
+  line-height: 1.45;
+}

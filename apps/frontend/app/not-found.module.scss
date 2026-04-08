@@ -1,0 +1,52 @@
+/* Стили страницы 404. */
+.page {
+  min-height: 100dvh;
+  display: grid;
+  place-items: center;
+  padding: clamp(2rem, 5vw, 4rem);
+  background: var(--color-bg-canvas);
+}
+
+.card {
+  /* Основной контейнер содержимого 404. */
+  display: grid;
+  gap: 1rem;
+  width: min(100%, 32rem);
+  padding: 2rem;
+  text-align: center;
+}
+
+.code {
+  /* Маленькая служебная подпись с кодом ошибки. */
+  color: var(--color-accent);
+  font-size: 0.85rem;
+  letter-spacing: 0.18em;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.title {
+  /* Главный заголовок 404. */
+  margin: 0;
+  font-size: clamp(2rem, 4vw, 3rem);
+}
+
+.description {
+  margin: 0;
+  color: var(--color-text-muted);
+}
+
+.link {
+  /* Кнопка возврата на главную. */
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 3rem;
+  padding: 0.875rem 1.25rem;
+  border: 1px solid var(--color-border-soft);
+  border-radius: var(--radius-md);
+  background: var(--color-bg-elevated);
+  color: var(--color-accent);
+  text-decoration: none;
+  font-weight: 600;
+}

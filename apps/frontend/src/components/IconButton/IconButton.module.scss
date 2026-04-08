@@ -1,0 +1,29 @@
+/* Компактная квадратная кнопка под иконки. */
+.iconButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 2.1rem;
+  height: 2.1rem;
+  border: 1px solid var(--color-border-soft);
+  border-radius: var(--radius-md);
+  background: var(--color-bg-surface);
+  color: var(--color-text-primary);
+  line-height: 0;
+  transition:
+    border-color 160ms ease,
+    background 160ms ease;
+}
+
+.iconButton :global(svg) {
+  display: block;
+  width: 1.125rem;
+  height: 1.125rem;
+  flex: 0 0 auto;
+}
+
+.iconButton:hover {
+  /* На hover усиливаем только рамку, без смещений и лишних эффектов. */
+  border-color: var(--color-border-strong);
+}

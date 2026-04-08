@@ -1,0 +1,102 @@
+/* Главный layout shell:
+   header сверху, sidebar слева, справа рабочая область и footer. */
+.shell {
+  position: relative;
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr);
+  width: 100%;
+  height: 100dvh;
+  min-height: 100dvh;
+  overflow: hidden;
+  background: var(--color-bg-canvas);
+}
+
+.shell::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(
+      90deg,
+      transparent 0,
+      transparent calc(100% - 1px),
+      var(--color-grid-line) calc(100% - 1px),
+      var(--color-grid-line) 100%
+    ),
+    linear-gradient(
+      180deg,
+      transparent 0,
+      transparent calc(100% - 1px),
+      var(--color-grid-line) calc(100% - 1px),
+      var(--color-grid-line) 100%
+    );
+  background-size: 7rem 7rem;
+  background-position: center center, center center;
+  opacity: 0.2;
+}
+
+.headerRow,
+.body {
+  position: relative;
+  width: 100%;
+  min-width: 0;
+}
+
+.headerRow {
+  z-index: 3;
+}
+
+.body {
+  z-index: 1;
+}
+
+.body {
+  /* Основная зона shell после header. */
+  display: grid;
+  grid-template-columns: 1fr;
+  column-gap: var(--layout-gap);
+  row-gap: 0;
+  align-items: stretch;
+  min-height: 0;
+  overflow: hidden;
+}
+
+@media (min-width: 1024px) {
+  .body {
+    /* Desktop-сетка: ширина sidebar определяется его анимируемой оболочкой. */
+    grid-template-columns: auto minmax(0, 1fr);
+  }
+}
+
+.content {
+  /* Правая колонка: workspace на всю высоту. */
+  display: grid;
+  grid-template-rows: 1fr;
+  min-width: 0;
+  min-height: 0;
+  overflow: hidden;
+  padding: 0;
+}
+
+.workspace {
+  min-width: 0;
+  min-height: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+  scrollbar-gutter: stable;
+  overscroll-behavior: contain;
+  display: flex;
+  flex-direction: column;
+}
+
+.workspaceContent {
+  flex: 1 0 auto;
+  padding: var(--layout-gap) var(--workspace-padding) var(--workspace-padding) 0;
+}
+
+@media (max-width: 1023px) {
+  .workspaceContent {
+    padding-left: var(--workspace-padding);
+  }
+}

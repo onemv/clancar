@@ -1,0 +1,21 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "outDir": "dist",
+    "rootDir": ".",
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "types": [
+      "node"
+    ]
+  },
+  "include": [
+    "openapi.config.ts",
+    "src",
+    "scripts"
+  ],
+  "exclude": [
+    "dist",
+    "node_modules"
+  ]
+}

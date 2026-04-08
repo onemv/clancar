@@ -1,0 +1,29 @@
+{
+  "name": "@clancar/frontend",
+  "private": true,
+  "scripts": {
+    "dev": "node scripts/prepare-runtime.mjs dev && node scripts/run-next.mjs dev",
+    "build": "node scripts/prepare-runtime.mjs build && next build",
+    "start": "node scripts/run-next.mjs start",
+    "lint": "eslint .",
+    "typecheck": "next typegen && tsc --noEmit"
+  },
+  "dependencies": {
+    "hugeicons-react": "^0.4.0",
+    "motion": "^12.38.0",
+    "next": "^15.1.6",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "sass": "^1.83.4",
+    "zustand": "^5.0.2"
+  },
+  "devDependencies": {
+    "@eslint/eslintrc": "^3.3.5",
+    "@types/node": "^22.10.2",
+    "@types/react": "^19.0.10",
+    "@types/react-dom": "^19.0.4",
+    "eslint": "^9.17.0",
+    "eslint-config-next": "^15.1.6",
+    "typescript": "^5.7.2"
+  }
+}

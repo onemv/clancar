@@ -1,0 +1,14 @@
+html {
+  /* Глобально запрещаем горизонтальный скролл. */
+  height: 100%;
+  overflow-x: hidden;
+}
+
+body {
+  /* Базовый фон и основной цвет текста всего приложения. */
+  font-family: var(--font-body);
+  background: var(--color-bg-canvas);
+  color: var(--color-text-primary);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
