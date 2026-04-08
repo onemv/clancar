@@ -16,38 +16,38 @@
   /* Главный вводный блок слева. */
   display: flex;
   flex-direction: column;
-  gap: 0.55rem;
+  gap: 9px;
   min-width: 0;
   padding: var(--workspace-surface-padding);
   border-radius: var(--radius-lg);
-  min-height: clamp(11rem, 24vh, 15rem);
+  min-height: 200px;
   justify-content: flex-end;
 }
 
 .kicker {
   margin: 0;
   color: var(--color-accent);
-  font-size: 0.7rem;
+  font-size: 11px;
   font-weight: 700;
-  letter-spacing: 0.14em;
+  letter-spacing: 1px;
   text-transform: uppercase;
 }
 
 .title {
   margin: 0;
-  max-width: 12ch;
+  max-width: 192px;
   color: var(--color-text-primary);
-  font-size: clamp(1.4rem, 2.2vw, 2.45rem);
+  font-size: 39px;
   font-weight: 700;
   line-height: 1;
-  letter-spacing: -0.05em;
+  letter-spacing: -2px;
 }
 
 .description {
-  max-width: 58ch;
+  max-width: 928px;
   margin: 0;
   color: var(--color-text-secondary);
-  font-size: 0.84rem;
+  font-size: 13px;
   line-height: 1.45;
 }
 
@@ -56,22 +56,22 @@
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  gap: 0.45rem;
+  gap: 7px;
   min-width: 0;
   padding: var(--workspace-surface-padding);
   border-radius: var(--radius-lg);
-  min-height: clamp(11rem, 24vh, 15rem);
+  min-height: 200px;
 }
 
 .placeholderLabel {
   color: var(--color-text-primary);
-  font-size: 0.8rem;
+  font-size: 13px;
   font-weight: 700;
 }
 
 .placeholderText {
   margin: 0;
   color: var(--color-text-secondary);
-  font-size: 0.82rem;
+  font-size: 13px;
   line-height: 1.45;
 }

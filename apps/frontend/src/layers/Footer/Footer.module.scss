@@ -2,11 +2,11 @@
 .footer {
   display: grid;
   grid-template-columns: auto minmax(0, 1fr);
-  gap: 0.55rem;
-  padding: 0.75rem var(--workspace-padding);
+  gap: 9px;
+  padding: 12px var(--workspace-padding);
   border-top: 1px solid var(--color-border-soft);
   color: var(--color-text-muted);
-  font-size: 0.76rem;
+  font-size: 12px;
   align-items: center;
 }
 

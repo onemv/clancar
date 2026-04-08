@@ -1,5 +1,5 @@
 .dropdownMenu {
-  width: min(100%, 18rem);
+  width: min(100%, 288px);
 }
 
 .fullWidth {
@@ -15,7 +15,7 @@
   display: inline-flex;
   align-items: center;
   width: 100%;
-  min-height: 2.4rem;
+  min-height: 38px;
   border: 1px solid var(--color-border-soft);
   border-radius: var(--radius-md);
   background: var(--color-bg-surface);
@@ -37,7 +37,7 @@
   width: 100%;
   min-width: 0;
   height: 100%;
-  padding: 0.55rem 0.75rem;
+  padding: 9px 12px;
   border: 0;
   background: transparent;
   color: var(--color-text-primary);
@@ -58,51 +58,51 @@
   align-items: center;
   justify-content: center;
   flex: 0 0 auto;
-  width: 2rem;
+  width: 32px;
   color: var(--color-text-muted);
   line-height: 0;
 }
 
 .icon :global(svg) {
   display: block;
-  width: 1rem;
-  height: 1rem;
+  width: 16px;
+  height: 16px;
 }
 
 .panel {
   width: 100%;
   min-width: 0;
-  padding: 0.25rem;
+  padding: 4px;
 }
 
 .listWrap {
   display: grid;
-  gap: 0.375rem;
+  gap: 6px;
   min-width: 0;
 }
 
 .tags {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.375rem;
+  gap: 6px;
   width: 100%;
   min-width: 0;
-  padding: 0.125rem;
+  padding: 2px;
 }
 
 .tag {
   display: inline-flex;
   align-items: center;
-  gap: 0.35rem;
+  gap: 6px;
   max-width: 100%;
-  min-height: 1.75rem;
-  padding: 0.25rem 0.55rem;
+  min-height: 28px;
+  padding: 4px 9px;
   border: 0;
   border-radius: var(--radius-pill);
   background: var(--color-accent-soft);
   color: var(--color-accent);
   font: inherit;
-  font-size: 0.76rem;
+  font-size: 12px;
   line-height: 1;
   cursor: pointer;
   transition:
@@ -124,8 +124,8 @@
 
 .tagIcon :global(svg) {
   display: block;
-  width: 0.75rem;
-  height: 0.75rem;
+  width: 12px;
+  height: 12px;
 }
 
 .tag span:first-child {
@@ -137,8 +137,8 @@
 
 .list {
   display: grid;
-  gap: 0.125rem;
-  max-height: 14rem;
+  gap: 2px;
+  max-height: 224px;
   overflow-y: auto;
 }
 
@@ -146,10 +146,10 @@
   display: inline-flex;
   align-items: center;
   justify-content: space-between;
-  gap: 0.75rem;
+  gap: 12px;
   width: 100%;
-  min-height: 2.25rem;
-  padding: 0.5rem 0.65rem;
+  min-height: 36px;
+  padding: 8px 10px;
   border: 0;
   border-radius: var(--radius-md);
   background: transparent;
@@ -193,12 +193,12 @@
 
 .optionIcon :global(svg) {
   display: block;
-  width: 0.875rem;
-  height: 0.875rem;
+  width: 14px;
+  height: 14px;
 }
 
 .empty {
-  padding: 0.65rem;
+  padding: 10px;
   color: var(--color-text-muted);
-  font-size: 0.8rem;
+  font-size: 13px;
 }

@@ -1,8 +1,8 @@
 /* Пункт навигации sidebar. */
 .navItem {
-  --nav-item-icon-size: 1.125rem;
-  --nav-item-inline-padding: 0.72rem;
-  --nav-item-block-padding: 0.62rem;
+  --nav-item-icon-size: 18px;
+  --nav-item-inline-padding: 12px;
+  --nav-item-block-padding: 10px;
   --nav-item-size: calc(var(--nav-item-icon-size) + (var(--nav-item-block-padding) * 2));
   position: relative;
   display: block;
@@ -35,7 +35,7 @@
   right: var(--nav-item-inline-padding);
   display: flex;
   align-items: center;
-  column-gap: 0.6rem;
+  column-gap: 10px;
   min-width: 0;
   transform: translateY(-50%);
   transition:
@@ -75,6 +75,6 @@
 .label {
   display: block;
   white-space: nowrap;
-  font-size: 0.82rem;
+  font-size: 13px;
   font-weight: 500;
 }

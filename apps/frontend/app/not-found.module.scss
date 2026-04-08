@@ -3,24 +3,24 @@
   min-height: 100dvh;
   display: grid;
   place-items: center;
-  padding: clamp(2rem, 5vw, 4rem);
+  padding: 48px;
   background: var(--color-bg-canvas);
 }
 
 .card {
   /* Основной контейнер содержимого 404. */
   display: grid;
-  gap: 1rem;
-  width: min(100%, 32rem);
-  padding: 2rem;
+  gap: 16px;
+  width: min(100%, 512px);
+  padding: 32px;
   text-align: center;
 }
 
 .code {
   /* Маленькая служебная подпись с кодом ошибки. */
   color: var(--color-accent);
-  font-size: 0.85rem;
-  letter-spacing: 0.18em;
+  font-size: 14px;
+  letter-spacing: 3px;
   font-weight: 700;
   text-transform: uppercase;
 }
@@ -28,7 +28,7 @@
 .title {
   /* Главный заголовок 404. */
   margin: 0;
-  font-size: clamp(2rem, 4vw, 3rem);
+  font-size: 48px;
 }
 
 .description {
@@ -41,8 +41,8 @@
   display: inline-flex;
   justify-content: center;
   align-items: center;
-  min-height: 3rem;
-  padding: 0.875rem 1.25rem;
+  min-height: 48px;
+  padding: 14px 20px;
   border: 1px solid var(--color-border-soft);
   border-radius: var(--radius-md);
   background: var(--color-bg-elevated);

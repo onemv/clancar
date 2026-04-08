@@ -2,11 +2,11 @@
 .userBadge {
   display: inline-flex;
   align-items: center;
-  gap: 0.55rem;
-  padding: 0.45rem 1rem 0.45rem 0.5rem;
+  gap: 9px;
+  padding: 7px 16px 7px 8px;
   border-radius: var(--radius-xl);
   min-width: 0;
-  max-width: 20rem;
+  max-width: 320px;
   cursor: pointer;
   transition:
     border-color 160ms ease,
@@ -21,12 +21,12 @@
   /* Квадратный аватар-заглушка с инициалами. */
   display: grid;
   place-items: center;
-  width: 1.84rem;
-  height: 1.84rem;
+  width: 30px;
+  height: 30px;
   border-radius: var(--radius-sm);
   background: var(--color-accent);
   color: var(--color-accent-contrast);
-  font-size: 0.72rem;
+  font-size: 12px;
   font-weight: 700;
 }
 
@@ -40,7 +40,7 @@
 
 .name {
   color: var(--color-text-primary);
-  font-size: 0.9rem;
+  font-size: 14px;
   font-weight: 400;
   white-space: nowrap;
   overflow: hidden;
@@ -49,35 +49,35 @@
 
 .role {
   color: var(--color-text-muted);
-  font-size: 0.75rem;
+  font-size: 12px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 
 .dropdownPanel {
-  padding: 0.3rem;
-  margin-top: 0.3125rem;
+  padding: 5px;
+  margin-top: 5px;
 }
 
 .menu {
   display: grid;
-  gap: 0.2rem;
+  gap: 3px;
 }
 
 .menuItem {
   display: inline-flex;
   align-items: center;
-  gap: 0.55rem;
+  gap: 9px;
   width: 100%;
-  min-height: 2.2rem;
-  padding: 0.5rem 0.65rem;
+  min-height: 35px;
+  padding: 8px 10px;
   border: 0;
   border-radius: var(--radius-md);
   background: transparent;
   color: var(--color-text-primary);
   font: inherit;
-  font-size: 0.8rem;
+  font-size: 13px;
   text-align: left;
   white-space: nowrap;
   cursor: pointer;
@@ -88,8 +88,8 @@
 
 .menuItem :global(svg) {
   display: block;
-  width: 1rem;
-  height: 1rem;
+  width: 16px;
+  height: 16px;
   flex: 0 0 auto;
 }
 
@@ -100,20 +100,9 @@
 
 @media (max-width: 1280px) {
   .userBadge {
-    gap: 0.45rem;
-    max-width: 11rem;
-    padding: 0.42rem 0.55rem;
-    border-radius: var(--radius-lg);
+    gap: 7px;
+    max-width: 176px;
+    padding: 7px 9px;
+    border-radius: 10px;
   }
-}
-
-@media (max-width: 1160px) {
-  // .meta {
-  //   /* При нехватке места оставляем только аватар. */
-  //   display: none;
-  // }
-
-  // .userBadge {
-  //   padding: 0.32rem;
-  // }
 }

@@ -10,18 +10,7 @@
 
 .header {
   display: grid;
-  gap: 0.25rem;
-}
-
-.content {
-  display: grid;
-  gap: var(--workspace-section-gap);
-  align-content: start;
-}
-
-.header {
-  display: grid;
-  gap: 0.25rem;
+  gap: 4px;
 }
 
 .content {

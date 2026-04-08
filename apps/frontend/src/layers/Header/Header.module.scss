@@ -5,10 +5,10 @@
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto;
   align-items: center;
-  gap: 0.625rem;
+  gap: 10px;
   min-height: var(--header-height);
   min-width: 0;
-  padding: 0.55rem var(--workspace-padding);
+  padding: 9px var(--workspace-padding);
   width: 100%;
   border-radius: 0;
   border: 0;
@@ -28,19 +28,19 @@
   align-items: center;
   justify-content: flex-end;
   flex-wrap: nowrap;
-  gap: 0.45rem;
+  gap: 7px;
   min-width: 0;
 }
 
 @media (max-width: 1280px) {
   .header {
-    padding: 0.5rem var(--workspace-padding);
+    padding: 8px var(--workspace-padding);
   }
 }
 
 @media (max-width: 1120px) {
   .right {
-    gap: 0.5rem;
+    gap: 8px;
   }
 }
 
@@ -57,7 +57,7 @@
 
 @media (max-width: 640px) {
   .header {
-    padding: 0.5rem var(--workspace-padding);
+    padding: 8px var(--workspace-padding);
   }
 
   .right {
