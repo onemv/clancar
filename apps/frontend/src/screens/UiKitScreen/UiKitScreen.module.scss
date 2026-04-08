@@ -2,23 +2,23 @@
 
 .kicker {
   color: var(--color-accent);
-  font-size: 0.72rem;
+  font-size: 12px;
   font-weight: 700;
-  letter-spacing: 0.16em;
+  letter-spacing: 2px;
   text-transform: uppercase;
 }
 
 .title {
   margin: 0;
-  font-size: clamp(1.45rem, 2.2vw, 2.2rem);
+  font-size: 35px;
   line-height: 1;
-  letter-spacing: -0.05em;
+  letter-spacing: -2px;
 }
 
 .description {
-  max-width: 52rem;
+  max-width: 832px;
   color: var(--color-text-secondary);
-  font-size: 0.88rem;
+  font-size: 14px;
   line-height: 1.5;
 }
 
@@ -35,7 +35,7 @@
 
 .group {
   display: grid;
-  gap: 1rem;
+  gap: 16px;
   padding: var(--workspace-surface-padding);
   border-radius: var(--radius-lg);
   align-content: start;
@@ -47,33 +47,33 @@
 
 .groupHeader {
   display: grid;
-  gap: 0.35rem;
+  gap: 6px;
 }
 
 .groupTitle {
-  font-size: 0.78rem;
+  font-size: 12px;
   font-weight: 700;
-  letter-spacing: 0.14em;
+  letter-spacing: 2px;
   text-transform: uppercase;
   color: var(--color-text-muted);
 }
 
 .groupDescription {
   margin: 0;
-  max-width: 42rem;
+  max-width: 672px;
   color: var(--color-text-secondary);
-  font-size: 0.82rem;
+  font-size: 13px;
   line-height: 1.45;
 }
 
 .groupBody {
   display: grid;
-  gap: 1rem;
+  gap: 16px;
 }
 
 .controlsPanel {
   display: grid;
-  gap: 0.9rem;
+  gap: 14px;
 }
 
 @media (min-width: 900px) {
@@ -85,38 +85,38 @@
 
 .controlSection {
   display: grid;
-  gap: 0.55rem;
+  gap: 9px;
 }
 
 .controlTitle {
   color: var(--color-text-primary);
-  font-size: 0.82rem;
+  font-size: 13px;
   font-weight: 600;
 }
 
 .controlMeta {
   display: grid;
-  gap: 0.2rem;
+  gap: 3px;
   align-content: start;
-  min-width: 10rem;
+  min-width: 160px;
 }
 
 .metaLabel {
   color: var(--color-text-muted);
-  font-size: 0.72rem;
+  font-size: 12px;
   text-transform: uppercase;
-  letter-spacing: 0.12em;
+  letter-spacing: 1px;
 }
 
 .metaValue {
   color: var(--color-text-primary);
-  font-size: 0.95rem;
+  font-size: 15px;
   font-weight: 600;
 }
 
 .controlsGrid {
   display: grid;
-  gap: 0.85rem;
+  gap: 14px;
 }
 
 @media (min-width: 900px) {
@@ -127,9 +127,9 @@
 
 .demoCard {
   display: grid;
-  gap: 0.75rem;
+  gap: 12px;
   min-width: 0;
-  padding: 0.9rem;
+  padding: 14px;
   border: 1px solid var(--color-border-soft);
   border-radius: var(--radius-lg);
   background: color-mix(in srgb, var(--color-bg-surface) 82%, transparent);
@@ -142,26 +142,26 @@
 
 .demoCardTitle {
   color: var(--color-text-primary);
-  font-size: 0.86rem;
+  font-size: 14px;
   font-weight: 600;
 }
 
 .demoCardHint {
   margin: 0;
   color: var(--color-text-muted);
-  font-size: 0.76rem;
+  font-size: 12px;
   line-height: 1.4;
 }
 
 .demoCardBody {
   display: grid;
-  gap: 0.75rem;
+  gap: 12px;
   min-width: 0;
 }
 
 .stack {
   display: grid;
-  gap: 0.85rem;
+  gap: 14px;
 }
 
 .row,
@@ -169,7 +169,7 @@
 .buttonRow {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.6rem;
+  gap: 10px;
   align-items: center;
 }
 
@@ -177,13 +177,13 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-height: 2.4rem;
-  padding: 0.58rem 0.85rem;
+  min-height: 38px;
+  padding: 9px 14px;
   border: 1px solid var(--color-border-strong);
   border-radius: var(--radius-md);
   background: var(--color-bg-elevated);
   color: var(--color-text-primary);
-  font-size: 0.86rem;
+  font-size: 14px;
   font-weight: 600;
   line-height: 1;
   white-space: nowrap;
@@ -201,21 +201,21 @@
 
 .dropdownMenu {
   display: grid;
-  gap: 0.25rem;
+  gap: 4px;
 }
 
 .dropdownItem {
   display: flex;
   align-items: center;
   width: 100%;
-  min-height: 2.2rem;
-  padding: 0.5rem 0.65rem;
+  min-height: 35px;
+  padding: 8px 10px;
   border: 0;
   border-radius: var(--radius-md);
   background: transparent;
   color: var(--color-text-primary);
   font: inherit;
-  font-size: 0.82rem;
+  font-size: 13px;
   text-align: left;
   white-space: nowrap;
   cursor: pointer;
@@ -230,8 +230,8 @@
 }
 
 .toggleChip {
-  min-height: 2.2rem;
-  padding: 0.52rem 0.8rem;
+  min-height: 35px;
+  padding: 8px 13px;
   border: 1px solid var(--color-border-soft);
   border-radius: var(--radius-md);
   background: transparent;
@@ -249,7 +249,7 @@
 
 .navGrid {
   display: grid;
-  gap: 0.7rem;
+  gap: 11px;
 }
 
 @media (min-width: 1040px) {
@@ -259,10 +259,10 @@
 }
 
 .navPreview {
-  width: min(100%, 15rem);
+  width: min(100%, 240px);
   pointer-events: none;
 }
 
 .navPreviewCollapsed {
-  width: 4.8rem;
+  width: 77px;
 }

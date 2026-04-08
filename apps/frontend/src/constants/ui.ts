@@ -1,5 +1,5 @@
 // Базовые UI-константы layout.
-// Здесь удобно менять ширину sidebar и desktop breakpoint без поиска по компонентам.
+// Значения заданы в px, чтобы не размазывать размеры по компонентам.
 export const ui = {
   desktopBreakpoint: 1024,
   sidebarWidth: 260,

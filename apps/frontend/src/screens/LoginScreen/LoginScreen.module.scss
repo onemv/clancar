@@ -1,7 +1,7 @@
 .page {
   position: relative;
   min-height: 100dvh;
-  padding: clamp(1rem, 2vw, 1.5rem);
+  padding: 16px;
   display: grid;
   align-items: stretch;
   background: var(--color-bg-canvas);
@@ -27,7 +27,7 @@
       var(--color-grid-line) calc(100% - 1px),
       var(--color-grid-line) 100%
     );
-  background-size: 7rem 7rem;
+  background-size: 112px 112px;
   background-position: center center, center center;
   opacity: 0.2;
 }
@@ -36,7 +36,7 @@
   position: relative;
   z-index: 1;
   width: 100%;
-  min-height: calc(100dvh - (clamp(1rem, 2vw, 1.5rem) * 2));
+  min-height: calc(100dvh - 32px);
   margin: 0 auto;
   display: grid;
   grid-template-rows: minmax(0, 1fr) auto minmax(0, 1fr);
@@ -57,9 +57,9 @@
   border-radius: var(--radius-xl);
   display: grid;
   grid-row: 2;
-  gap: 1.5rem;
-  width: min(100%, 32rem);
-  padding: clamp(1.25rem, 2vw, 1.75rem);
+  gap: 24px;
+  width: min(100%, 512px);
+  padding: 24px;
   background:
     linear-gradient(
       180deg,
@@ -76,32 +76,32 @@
 
 .cardHeader {
   display: grid;
-  gap: 0.65rem;
+  gap: 10px;
   justify-items: center;
 }
 
 .cardTitle {
   margin: 0;
   color: var(--color-text-primary);
-  font-size: clamp(1.6rem, 2.6vw, 2.25rem);
+  font-size: 36px;
   line-height: 1;
   font-weight: 700;
-  letter-spacing: -0.04em;
+  letter-spacing: -1px;
 }
 
 .form {
   display: grid;
-  gap: 1rem;
+  gap: 16px;
 }
 
 .field {
   display: grid;
-  gap: 0.5rem;
+  gap: 8px;
 }
 
 .label {
   color: var(--color-text-secondary);
-  font-size: 0.78rem;
+  font-size: 12px;
   font-weight: 600;
 }
 
@@ -116,7 +116,7 @@
 
 .actions {
   display: grid;
-  margin-top: 0.25rem;
+  margin-top: 4px;
 }
 
 .submit {
@@ -130,7 +130,7 @@
   background: transparent;
   color: var(--color-text-secondary);
   font: inherit;
-  font-size: 0.78rem;
+  font-size: 12px;
   line-height: 1.4;
   cursor: pointer;
   transition: color 160ms ease;
@@ -138,16 +138,16 @@
 
 .actions .inlineLink {
   justify-self: center;
-  margin-top: 0.875rem;
+  margin-top: 14px;
 }
 
 .inlineLink:hover {
   color: var(--color-accent);
 }
 
-@media (max-width: 40rem) {
+@media (max-width: 640px) {
   .page {
-    padding: 0.75rem;
+    padding: 12px;
   }
 
   .themeDock {

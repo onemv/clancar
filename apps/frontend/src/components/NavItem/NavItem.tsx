@@ -43,7 +43,7 @@ export function NavItem({
           initial={false}
           animate={{
             opacity: isVisible ? 1 : 0,
-            width: isVisible ? "auto" : "0rem"
+            width: isVisible ? "auto" : "0px"
           }}
           transition={{ duration: SIDEBAR_ANIM_DURATION, ease: EASE_IN_OUT }}
         >

@@ -9,12 +9,12 @@
 .sidebar {
   display: flex;
   flex-direction: column;
-  gap: 0.625rem;
+  gap: 10px;
   min-width: 0;
   overflow: hidden;
   width: 100%;
   height: 100%;
-  padding: 0.65rem;
+  padding: 10px;
   border-radius: 0;
   border-width: 0 1px 0 0;
 }
@@ -31,8 +31,8 @@
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto;
   align-items: center;
-  gap: 0.5rem;
-  padding: 0.1rem 0.1rem 0.4rem;
+  gap: 8px;
+  padding: 2px 2px 6px;
 }
 
 .header:not(:has(.headerMeta)) {
@@ -59,19 +59,19 @@
 
 .title {
   color: var(--color-text-primary);
-  font-size: 0.84rem;
+  font-size: 13px;
   font-weight: 700;
 }
 
 .subtitle {
   color: var(--color-text-muted);
-  font-size: 0.72rem;
+  font-size: 12px;
 }
 
 .nav {
   display: flex;
   flex-direction: column;
-  gap: 0.3rem;
+  gap: 5px;
   min-height: 0;
   width: 100%;
   overflow-y: auto;
