@@ -1,6 +1,7 @@
 "use client";
 
 import type { ReactNode } from "react";
+import { useState } from "react";
 import {
   DashboardSquare01Icon,
   Home01Icon,
@@ -13,12 +14,13 @@ import { BrandMark } from "@/components/BrandMark/BrandMark";
 import { Button } from "@/components/Button/Button";
 import { Dropdown } from "@/components/Dropdown/Dropdown";
 import { DropdownMenu } from "@/components/DropdownMenu/DropdownMenu";
-import { GlassSurface } from "@/components/GlassSurface/GlassSurface";
 import { IconButton } from "@/components/IconButton/IconButton";
 import { Input } from "@/components/Input/Input";
 import { NavItem } from "@/components/NavItem/NavItem";
 import { ThemeSwitch } from "@/components/ThemeSwitch/ThemeSwitch";
 import { UserBadge } from "@/components/UserBadge/UserBadge";
+import sectionStyles from "@/components/WorkspaceSection/WorkspaceSection.module.scss";
+import { WorkspaceSection } from "@/components/WorkspaceSection/WorkspaceSection";
 import { PageLayout } from "@/layers/PageLayout/PageLayout";
 import { WorkspaceShell } from "@/layers/WorkspaceShell/WorkspaceShell";
 import { cn } from "@/lib/cn";
@@ -31,6 +33,7 @@ type GroupProps = {
   description?: string;
   children: ReactNode;
   className?: string;
+  span?: 1 | 2 | 3 | 4 | 5;
 };
 
 type DemoCardProps = {
@@ -46,15 +49,27 @@ type ToggleChipProps = {
   onClick: () => void;
 };
 
-function Group({ title, description, children, className }: Readonly<GroupProps>) {
+type WorkspaceDemoSize =
+  | "1"
+  | "1/2"
+  | "1/3"
+  | "1/4"
+  | "1/5"
+  | "2/3"
+  | "3/4"
+  | "2/5"
+  | "3/5"
+  | "4/5";
+
+function Group({ title, description, children, className, span = 5 }: Readonly<GroupProps>) {
   return (
-    <GlassSurface className={cn(styles.group, className)}>
+    <WorkspaceSection className={cn(styles.group, className)} span={span}>
       <div className={styles.groupHeader}>
         <div className={styles.groupTitle}>{title}</div>
         {description ? <p className={styles.groupDescription}>{description}</p> : null}
       </div>
       <div className={styles.groupBody}>{children}</div>
-    </GlassSurface>
+    </WorkspaceSection>
   );
 }
 
@@ -87,12 +102,25 @@ export function UiKitScreen() {
   const setTheme = useThemeStore((state) => state.setTheme);
   const collapsed = useSidebarStore((state) => state.collapsed);
   const setCollapsed = useSidebarStore((state) => state.setCollapsed);
+  const [dynamicSectionSize, setDynamicSectionSize] = useState<WorkspaceDemoSize>("1/2");
 
   const statusOptions = [
     { value: "new", label: "Новый лот" },
     { value: "inspection", label: "Проверка", keywords: ["осмотр", "диагностика"] },
     { value: "auction", label: "Аукцион", keywords: ["торги", "ставки"] },
     { value: "sold", label: "Продан", keywords: ["закрыт", "завершен"] }
+  ];
+  const sectionSizeOptions = [
+    { value: "1", label: "1 (вся ширина)" },
+    { value: "1/2", label: "1/2" },
+    { value: "1/3", label: "1/3" },
+    { value: "1/4", label: "1/4" },
+    { value: "1/5", label: "1/5" },
+    { value: "2/3", label: "2/3" },
+    { value: "3/4", label: "3/4" },
+    { value: "2/5", label: "2/5" },
+    { value: "3/5", label: "3/5" },
+    { value: "4/5", label: "4/5" }
   ];
 
   return (
@@ -108,12 +136,12 @@ export function UiKitScreen() {
             </p>
           </>
         }
-        contentClassName={styles.layout}
+        contentClassName={cn(sectionStyles.workspaceSections, styles.layout)}
       >
         <Group
           title="Состояние интерфейса"
           description="Быстрые переключатели для проверки темы и поведения shell."
-          className={styles.groupWide}
+          span={5}
         >
           <div className={styles.controlsPanel}>
             <div className={styles.controlSection}>
@@ -155,7 +183,7 @@ export function UiKitScreen() {
         <Group
           title="Поля и выбор"
           description="Базовые элементы для форм, фильтров и операционных действий."
-          className={styles.groupWide}
+          span={5}
         >
           <div className={styles.controlsGrid}>
             <DemoCard title="Обычное поле" hint="Текстовый ввод">
@@ -190,6 +218,7 @@ export function UiKitScreen() {
         <Group
           title="Действия"
           description="Кнопки и action-элементы, которые обычно запускают сценарии."
+          span={2}
         >
           <div className={styles.stack}>
             <DemoCard title="Кнопки" hint="Основные варианты действий">
@@ -226,6 +255,7 @@ export function UiKitScreen() {
         <Group
           title="Элементы оболочки"
           description="Компоненты, которые живут в header, toolbar и пользовательском блоке."
+          span={3}
         >
           <div className={styles.stack}>
             <DemoCard title="Identity" hint="Бренд, переключатель темы и блок пользователя">
@@ -253,9 +283,62 @@ export function UiKitScreen() {
         </Group>
 
         <Group
+          title="Сетка секций workspace"
+          description="Один блок меняет ширину в 5-колоночной сетке через готовый DropdownMenu."
+          span={5}
+        >
+          <div className={styles.workspaceSizeControl}>
+            <DropdownMenu
+              options={sectionSizeOptions}
+              value={String(dynamicSectionSize)}
+              onValueChange={(value) => {
+                const allowedSizes: WorkspaceDemoSize[] = [
+                  "1",
+                  "1/2",
+                  "1/3",
+                  "1/4",
+                  "1/5",
+                  "2/3",
+                  "3/4",
+                  "2/5",
+                  "3/5",
+                  "4/5"
+                ];
+
+                if (allowedSizes.includes(value as WorkspaceDemoSize)) {
+                  setDynamicSectionSize(value as WorkspaceDemoSize);
+                }
+              }}
+            />
+          </div>
+
+          <div className={cn(sectionStyles.workspaceSections, styles.workspaceDemoGrid)}>
+            <WorkspaceSection className={styles.workspaceDemoCard} size={dynamicSectionSize}>
+              <div className={styles.workspaceDemoTitle}>Динамический блок</div>
+              <p className={styles.workspaceDemoText}>Текущий размер: {dynamicSectionSize}</p>
+            </WorkspaceSection>
+
+            <WorkspaceSection className={styles.workspaceDemoCard} size="1/5">
+              <div className={styles.workspaceDemoTitle}>Статичный блок</div>
+              <p className={styles.workspaceDemoText}>1/5</p>
+            </WorkspaceSection>
+
+            <WorkspaceSection className={styles.workspaceDemoCard} size="2/5">
+              <div className={styles.workspaceDemoTitle}>Статичный блок</div>
+              <p className={styles.workspaceDemoText}>2/5</p>
+            </WorkspaceSection>
+
+            <WorkspaceSection className={styles.workspaceDemoCard} size="2/5">
+              <div className={styles.workspaceDemoTitle}>Статичный блок</div>
+              <p className={styles.workspaceDemoText}>2/5</p>
+            </WorkspaceSection>
+          </div>
+        </Group>
+
+        <Group
           title="Навигационный элемент"
           description="Базовое состояние пункта меню в обычном и свернутом shell."
-          className={styles.groupWide}
+          span={5}
         >
           <div className={styles.navGrid}>
             <div className={styles.navPreview}>

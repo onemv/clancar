@@ -23,26 +23,13 @@
 }
 
 .layout {
-  display: grid;
-  gap: var(--workspace-section-gap);
-}
-
-@media (min-width: 1100px) {
-  .layout {
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-  }
+  width: 100%;
 }
 
 .group {
   display: grid;
   gap: 16px;
-  padding: var(--workspace-surface-padding);
-  border-radius: var(--radius-lg);
   align-content: start;
-}
-
-.groupWide {
-  grid-column: 1 / -1;
 }
 
 .groupHeader {
@@ -69,6 +56,33 @@
 .groupBody {
   display: grid;
   gap: 16px;
+}
+
+.workspaceSizeControl {
+  width: min(100%, 280px);
+}
+
+.workspaceDemoGrid {
+  width: 100%;
+}
+
+.workspaceDemoCard {
+  display: grid;
+  gap: 8px;
+  min-height: 96px;
+  align-content: end;
+}
+
+.workspaceDemoTitle {
+  color: var(--color-text-primary);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.workspaceDemoText {
+  margin: 0;
+  color: var(--color-text-secondary);
+  font-size: 13px;
 }
 
 .controlsPanel {
