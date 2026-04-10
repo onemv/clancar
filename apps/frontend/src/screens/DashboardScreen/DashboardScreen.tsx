@@ -1,28 +1,43 @@
 import styles from "./DashboardScreen.module.scss";
 import { WorkspaceShell } from "@/layers/WorkspaceShell/WorkspaceShell";
 import { PageLayout } from "@/layers/PageLayout/PageLayout";
-import { GlassSurface } from "@/components/GlassSurface/GlassSurface";
+import sectionStyles from "@/components/WorkspaceSection/WorkspaceSection.module.scss";
+import { WorkspaceSection } from "@/components/WorkspaceSection/WorkspaceSection";
 
 export function DashboardScreen() {
   return (
     <WorkspaceShell>
-      <PageLayout contentClassName={styles.content}>
-        <GlassSurface className={styles.hero}>
-          <p className={styles.kicker}>Операционный центр</p>
-          <h2 className={styles.title}>Контроль движения автомобилей и аукционов</h2>
-          <p className={styles.description}>
-            Рабочее пространство для учета, статусов и процессов. Первый экран намеренно
-            минимален: здесь только каркас, подсветка темы и базовая навигация.
-          </p>
-        </GlassSurface>
+      <PageLayout
+        header={<h1 className={styles.pageTitle}>Дашборд</h1>}
+        contentClassName={sectionStyles.workspaceSections}
+      >
+        <WorkspaceSection className={styles.metricCard} span={1}>
+          <p className={styles.metricValue}>12 480</p>
+          <p className={styles.metricLabel}>Всего автомобилей</p>
+        </WorkspaceSection>
 
-        <GlassSurface className={styles.placeholder}>
-          <div className={styles.placeholderLabel}>Секция Dashboard</div>
-          <p className={styles.placeholderText}>
-            Здесь позже появятся карточки лотов, статусы проверки, поток аукциона и
-            операционные метрики.
-          </p>
-        </GlassSurface>
+        <WorkspaceSection className={styles.metricCard} span={1}>
+          <p className={styles.metricValue}>3 120</p>
+          <p className={styles.metricLabel}>Всего аукционов</p>
+        </WorkspaceSection>
+
+        <WorkspaceSection className={styles.metricCard} span={1}>
+          <p className={styles.metricValue}>742</p>
+          <p className={styles.metricLabel}>Активные лоты</p>
+        </WorkspaceSection>
+
+        <WorkspaceSection className={styles.metricCard} span={1}>
+          <p className={styles.metricValue}>9 865</p>
+          <p className={styles.metricLabel}>Завершенные лоты</p>
+        </WorkspaceSection>
+
+        <WorkspaceSection className={styles.metricCard} span={1}>
+          <p className={styles.metricValue}>1 304</p>
+          <p className={styles.metricLabel}>Пользователей</p>
+        </WorkspaceSection>
+
+        <WorkspaceSection size="1/2">Половинчатая секция 1</WorkspaceSection>
+        <WorkspaceSection size="1/2">Половинчатая секция 2</WorkspaceSection>
       </PageLayout>
     </WorkspaceShell>
   );

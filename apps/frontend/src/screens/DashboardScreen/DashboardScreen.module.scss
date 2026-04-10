@@ -1,77 +1,29 @@
-/* Стили стартового dashboard-экрана. */
-.content {
-  display: grid;
-  gap: var(--workspace-section-gap);
-}
-
-@media (min-width: 1280px) {
-  .content {
-    /* На больших экранах dashboard становится двухколоночным. */
-    grid-template-columns: minmax(0, 1.3fr) minmax(320px, 0.78fr);
-    align-items: start;
-  }
-}
-
-.hero {
-  /* Главный вводный блок слева. */
-  display: flex;
-  flex-direction: column;
-  gap: 9px;
-  min-width: 0;
-  padding: var(--workspace-surface-padding);
-  border-radius: var(--radius-lg);
-  min-height: 200px;
-  justify-content: flex-end;
-}
-
-.kicker {
+.pageTitle {
   margin: 0;
-  color: var(--color-accent);
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-}
-
-.title {
-  margin: 0;
-  max-width: 192px;
   color: var(--color-text-primary);
-  font-size: 39px;
-  font-weight: 700;
+  font-size: 35px;
   line-height: 1;
   letter-spacing: -2px;
 }
 
-.description {
-  max-width: 928px;
+.metricCard {
+  display: grid;
+  gap: 10px;
+  align-content: end;
+}
+
+.metricValue {
   margin: 0;
-  color: var(--color-text-secondary);
-  font-size: 13px;
-  line-height: 1.45;
-}
-
-.placeholder {
-  /* Временный правый блок-заглушка под будущие модули dashboard. */
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  gap: 7px;
-  min-width: 0;
-  padding: var(--workspace-surface-padding);
-  border-radius: var(--radius-lg);
-  min-height: 200px;
-}
-
-.placeholderLabel {
   color: var(--color-text-primary);
-  font-size: 13px;
+  font-size: 39px;
   font-weight: 700;
+  line-height: 1;
+  letter-spacing: -1px;
 }
 
-.placeholderText {
+.metricLabel {
   margin: 0;
   color: var(--color-text-secondary);
   font-size: 13px;
-  line-height: 1.45;
+  line-height: 1.35;
 }
