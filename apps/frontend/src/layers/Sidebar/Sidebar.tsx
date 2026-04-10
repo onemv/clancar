@@ -8,7 +8,6 @@ import { usePathname } from "next/navigation";
 import styles from "./Sidebar.module.scss";
 import { IconButton } from "@/components/IconButton/IconButton";
 import { NavItem } from "@/components/NavItem/NavItem";
-import { GlassSurface } from "@/components/GlassSurface/GlassSurface";
 import { routes } from "@/constants/routes";
 import { ui } from "@/constants/ui";
 import { useSidebarStore } from "@/store/sidebar/sidebar.store";
@@ -44,7 +43,7 @@ export function Sidebar() {
       animate={{ width: collapsed ? ui.sidebarCollapsedWidth : ui.sidebarWidth }}
       transition={{ duration: SIDEBAR_ANIM_DURATION, ease: EASE_IN_OUT }}
     >
-      <GlassSurface className={styles.sidebar}>
+      <div className={styles.sidebar}>
         <div className={styles.header}>
           <AnimatePresence initial={false}>
             {showDetails ? (
@@ -79,7 +78,7 @@ export function Sidebar() {
             icon={<DashboardSquare01Icon size={18} />}
           />
         </nav>
-      </GlassSurface>
+      </div>
     </motion.aside>
   );
 }

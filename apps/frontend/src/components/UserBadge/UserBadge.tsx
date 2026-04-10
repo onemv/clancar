@@ -2,7 +2,6 @@ import { Logout01Icon, Moon02Icon, Settings02Icon, Sun02Icon } from "hugeicons-r
 
 import styles from "./UserBadge.module.scss";
 import { Dropdown } from "@/components/Dropdown/Dropdown";
-import { GlassSurface } from "@/components/GlassSurface/GlassSurface";
 import { useThemeStore } from "@/store/theme/theme.store";
 
 export function UserBadge() {
@@ -12,13 +11,13 @@ export function UserBadge() {
   return (
     <Dropdown
       trigger={
-        <GlassSurface className={styles.userBadge}>
+        <div className={styles.userBadge}>
           <div className={styles.avatar}>MM</div>
           <div className={styles.meta}>
             <span className={styles.name}>Максим Москвитин</span>
             <span className={styles.role}>SuperAdmin</span>
           </div>
-        </GlassSurface>
+        </div>
       }
       panelClassName={styles.dropdownPanel}
       closeOnSelect
