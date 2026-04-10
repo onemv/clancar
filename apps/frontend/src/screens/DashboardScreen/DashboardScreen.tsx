@@ -11,27 +11,27 @@ export function DashboardScreen() {
         header={<h1 className={styles.pageTitle}>Дашборд</h1>}
         contentClassName={sectionStyles.workspaceSections}
       >
-        <WorkspaceSection className={styles.metricCard} span={1}>
+        <WorkspaceSection className={styles.metricCard} size="1/5">
           <p className={styles.metricValue}>12 480</p>
           <p className={styles.metricLabel}>Всего автомобилей</p>
         </WorkspaceSection>
 
-        <WorkspaceSection className={styles.metricCard} span={1}>
+        <WorkspaceSection className={styles.metricCard} size="1/5">
           <p className={styles.metricValue}>3 120</p>
           <p className={styles.metricLabel}>Всего аукционов</p>
         </WorkspaceSection>
 
-        <WorkspaceSection className={styles.metricCard} span={1}>
+        <WorkspaceSection className={styles.metricCard} size="1/5">
           <p className={styles.metricValue}>742</p>
           <p className={styles.metricLabel}>Активные лоты</p>
         </WorkspaceSection>
 
-        <WorkspaceSection className={styles.metricCard} span={1}>
+        <WorkspaceSection className={styles.metricCard} size="1/5">
           <p className={styles.metricValue}>9 865</p>
           <p className={styles.metricLabel}>Завершенные лоты</p>
         </WorkspaceSection>
 
-        <WorkspaceSection className={styles.metricCard} span={1}>
+        <WorkspaceSection className={styles.metricCard} size="1/5">
           <p className={styles.metricValue}>1 304</p>
           <p className={styles.metricLabel}>Пользователей</p>
         </WorkspaceSection>

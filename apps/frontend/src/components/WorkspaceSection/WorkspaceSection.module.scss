@@ -13,11 +13,6 @@
   background: var(--color-bg-surface);
 }
 
-.span1,
-.span2,
-.span3,
-.span4,
-.span5,
 .size1,
 .size1of2,
 .size1of3,
@@ -27,8 +22,7 @@
 .size3of4,
 .size2of5,
 .size3of5,
-.size4of5,
-.sizeHalf {
+.size4of5 {
   grid-column: span 1;
 }
 
@@ -41,8 +35,7 @@
     grid-column: span 60;
   }
 
-  .size1of2,
-  .sizeHalf {
+  .size1of2 {
     grid-column: span 30;
   }
 
@@ -76,26 +69,5 @@
 
   .size4of5 {
     grid-column: span 48;
-  }
-
-  /* Legacy API span=1..5 сохраняется как доли от 1/5. */
-  .span1 {
-    grid-column: span 12;
-  }
-
-  .span2 {
-    grid-column: span 24;
-  }
-
-  .span3 {
-    grid-column: span 36;
-  }
-
-  .span4 {
-    grid-column: span 48;
-  }
-
-  .span5 {
-    grid-column: span 60;
   }
 }

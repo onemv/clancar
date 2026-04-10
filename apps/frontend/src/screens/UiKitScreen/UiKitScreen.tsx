@@ -33,7 +33,7 @@ type GroupProps = {
   description?: string;
   children: ReactNode;
   className?: string;
-  span?: 1 | 2 | 3 | 4 | 5;
+  size?: "1" | "1/2" | "1/3" | "1/4" | "1/5" | "2/3" | "3/4" | "2/5" | "3/5" | "4/5";
 };
 
 type DemoCardProps = {
@@ -61,9 +61,9 @@ type WorkspaceDemoSize =
   | "3/5"
   | "4/5";
 
-function Group({ title, description, children, className, span = 5 }: Readonly<GroupProps>) {
+function Group({ title, description, children, className, size = "1" }: Readonly<GroupProps>) {
   return (
-    <WorkspaceSection className={cn(styles.group, className)} span={span}>
+    <WorkspaceSection className={cn(styles.group, className)} size={size}>
       <div className={styles.groupHeader}>
         <div className={styles.groupTitle}>{title}</div>
         {description ? <p className={styles.groupDescription}>{description}</p> : null}
@@ -141,7 +141,7 @@ export function UiKitScreen() {
         <Group
           title="Состояние интерфейса"
           description="Быстрые переключатели для проверки темы и поведения shell."
-          span={5}
+          size="1"
         >
           <div className={styles.controlsPanel}>
             <div className={styles.controlSection}>
@@ -183,7 +183,7 @@ export function UiKitScreen() {
         <Group
           title="Поля и выбор"
           description="Базовые элементы для форм, фильтров и операционных действий."
-          span={5}
+          size="1"
         >
           <div className={styles.controlsGrid}>
             <DemoCard title="Обычное поле" hint="Текстовый ввод">
@@ -218,7 +218,7 @@ export function UiKitScreen() {
         <Group
           title="Действия"
           description="Кнопки и action-элементы, которые обычно запускают сценарии."
-          span={2}
+          size="2/5"
         >
           <div className={styles.stack}>
             <DemoCard title="Кнопки" hint="Основные варианты действий">
@@ -255,7 +255,7 @@ export function UiKitScreen() {
         <Group
           title="Элементы оболочки"
           description="Компоненты, которые живут в header, toolbar и пользовательском блоке."
-          span={3}
+          size="3/5"
         >
           <div className={styles.stack}>
             <DemoCard title="Identity" hint="Бренд, переключатель темы и блок пользователя">
@@ -285,7 +285,7 @@ export function UiKitScreen() {
         <Group
           title="Сетка секций workspace"
           description="Один блок меняет ширину в 5-колоночной сетке через готовый DropdownMenu."
-          span={5}
+          size="1"
         >
           <div className={styles.workspaceSizeControl}>
             <DropdownMenu
@@ -338,7 +338,7 @@ export function UiKitScreen() {
         <Group
           title="Навигационный элемент"
           description="Базовое состояние пункта меню в обычном и свернутом shell."
-          span={5}
+          size="1"
         >
           <div className={styles.navGrid}>
             <div className={styles.navPreview}>
