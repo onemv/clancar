@@ -1,0 +1,73 @@
+.tabs {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  width: fit-content;
+  max-width: 100%;
+  padding: 4px;
+  border: 1px solid var(--color-border-soft);
+  border-radius: var(--radius-lg);
+  background: color-mix(in srgb, var(--color-bg-surface) 90%, transparent);
+}
+
+.tab {
+  position: relative;
+  z-index: 1;
+  min-height: 36px;
+  padding: 8px 12px;
+  border: 1px solid transparent;
+  border-radius: var(--radius-sm);
+  background: transparent;
+  color: var(--color-text-secondary);
+  font: inherit;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1;
+  white-space: nowrap;
+  cursor: pointer;
+  transition:
+    border-color 160ms ease,
+    background-color 160ms ease,
+    color 160ms ease;
+}
+
+.tab:hover {
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+}
+
+.tab:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+.active {
+  color: var(--color-text-primary);
+  border-color: transparent;
+}
+
+.active:hover {
+  color: var(--color-text-primary);
+  border-color: transparent;
+}
+
+.activeIndicator {
+  box-sizing: border-box;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  pointer-events: none;
+  border-radius: var(--radius-sm);
+  background: var(--color-accent-soft);
+}
+
+:global(html[data-theme="light"]) .activeIndicator {
+  border: 1px solid color-mix(in srgb, var(--color-accent) 42%, transparent);
+}
+
+.tabLabel {
+  position: relative;
+  z-index: 2;
+}
