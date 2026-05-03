@@ -1,0 +1,261 @@
+.root {
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr);
+  gap: 8px;
+  min-height: 0;
+  height: 100%;
+}
+
+.header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.title {
+  margin: 0;
+  color: var(--color-text-primary);
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.hint {
+  margin: 0;
+  color: var(--color-text-secondary);
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+.dropzone {
+  display: grid;
+  align-content: stretch;
+  min-height: 0;
+  height: 100%;
+  padding: 8px;
+  border: 1px dashed var(--color-border-strong);
+  border-radius: var(--radius-md);
+  background:
+    linear-gradient(
+      180deg,
+      color-mix(in srgb, var(--color-bg-surface) 96%, transparent),
+      color-mix(in srgb, var(--color-bg-elevated) 92%, transparent)
+    );
+  transition:
+    border-color 160ms ease,
+    background-color 160ms ease,
+    box-shadow 160ms ease;
+}
+
+.dropzoneFilled {
+  min-height: 0;
+}
+
+.dragging {
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 3px var(--color-accent-soft);
+}
+
+.input {
+  display: none;
+}
+
+.content {
+  min-height: 0;
+  height: 100%;
+}
+
+.emptyState {
+  height: 100%;
+  display: grid;
+  gap: 8px;
+  justify-items: center;
+  align-content: center;
+  text-align: center;
+}
+
+.emptyTitle {
+  color: var(--color-text-primary);
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.emptyHint {
+  margin: 0;
+  color: var(--color-text-muted);
+  font-size: 12px;
+  line-height: 1.45;
+}
+
+.grid {
+  display: grid;
+  gap: 6px;
+  grid-template-columns: 1fr;
+}
+
+.card {
+  --card-v-padding: 6px;
+  --card-gap: 6px;
+  --control-size: 30px;
+  --card-content-height: calc((var(--control-size) * 2) + var(--card-gap));
+  --card-base-height: calc(var(--card-content-height) + (var(--card-v-padding) * 2));
+  position: relative;
+  display: grid;
+  grid-template-columns: 62px minmax(0, 1fr);
+  align-items: stretch;
+  min-height: var(--card-base-height);
+  height: var(--card-base-height);
+  overflow: visible;
+  border: 1px solid var(--color-border-soft);
+  border-radius: var(--radius-md);
+  background: color-mix(in srgb, var(--color-bg-surface) 88%, transparent);
+  cursor: grab;
+  transition:
+    border-color 160ms ease,
+    box-shadow 160ms ease;
+}
+
+.card:active {
+  cursor: grabbing;
+}
+
+.cardDragging {
+  z-index: 1;
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 3px var(--color-accent-soft);
+}
+
+.dragLayer {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 62px;
+  z-index: 1;
+}
+
+.deleteButton {
+  position: relative;
+  width: var(--control-size) !important;
+  min-width: var(--control-size) !important;
+  max-width: var(--control-size) !important;
+  height: var(--control-size) !important;
+  min-height: var(--control-size) !important;
+  max-height: var(--control-size) !important;
+  flex: 0 0 var(--control-size);
+  padding: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  color: var(--color-text-primary);
+  border-color: var(--color-border-soft);
+  background: color-mix(in srgb, var(--color-bg-elevated) 94%, transparent);
+}
+
+.deleteButton :global(svg) {
+  display: block;
+  width: 13px;
+  height: 13px;
+}
+
+.deleteIcon {
+  display: block;
+  width: 13px;
+  height: 13px;
+  flex: 0 0 auto;
+  color: currentColor;
+}
+
+.deleteButton.deleteButton:hover:not(:disabled) {
+  color: var(--color-danger);
+  border-color: color-mix(in srgb, var(--color-danger) 54%, transparent);
+  background: color-mix(in srgb, var(--color-danger) 14%, var(--color-bg-surface));
+  box-shadow: none;
+}
+
+.deleteButton.deleteButton:focus-visible {
+  outline: 2px solid color-mix(in srgb, var(--color-danger) 62%, transparent);
+  outline-offset: 1px;
+  border-color: color-mix(in srgb, var(--color-danger) 54%, transparent);
+  color: var(--color-danger);
+}
+
+.preview {
+  display: grid;
+  place-items: center;
+  min-height: 100%;
+  border-right: 1px solid var(--color-border-soft);
+  background: color-mix(in srgb, var(--color-bg-elevated) 92%, transparent);
+}
+
+.previewPdf,
+.previewVideo {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  display: block;
+  pointer-events: none;
+}
+
+.previewVideo {
+  object-fit: cover;
+}
+
+.cardMeta {
+  display: grid;
+  gap: var(--card-gap);
+  align-content: center;
+  padding: var(--card-v-padding) 10px;
+  position: relative;
+  z-index: 3;
+}
+
+.nameInput {
+  width: 100%;
+  min-height: var(--control-size) !important;
+}
+
+.nameInput :global(.Input-module-scss-module__input) {
+  padding: 5px 10px;
+  font-size: 12px;
+}
+
+.typeRow {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 4px;
+  align-items: center;
+}
+
+.typeDropdown {
+  width: 100%;
+  position: relative;
+  z-index: 6;
+}
+
+.typeDropdown :global(.DropdownMenu-module-scss-module__field) {
+  min-height: var(--control-size);
+}
+
+.typeDropdown :global(.DropdownMenu-module-scss-module__input) {
+  padding: 5px 10px;
+  font-size: 12px;
+}
+
+.typeDropdown :global(.DropdownMenu-module-scss-module__icon) {
+  width: 24px;
+}
+
+@media (max-width: 600px) {
+  .card {
+    grid-template-columns: 54px minmax(0, 1fr);
+    min-height: var(--card-base-height);
+    height: var(--card-base-height);
+  }
+
+  .dragLayer {
+    width: 54px;
+  }
+}

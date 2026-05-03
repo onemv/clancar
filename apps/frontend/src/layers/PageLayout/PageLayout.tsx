@@ -6,6 +6,7 @@ import { cn } from "@/lib/cn";
 type PageLayoutProps = {
   children: ReactNode;
   header?: ReactNode;
+  breadcrumbs?: ReactNode;
   className?: string;
   contentClassName?: string;
 };
@@ -13,6 +14,7 @@ type PageLayoutProps = {
 export function PageLayout({
   children,
   header,
+  breadcrumbs,
   className,
   contentClassName
 }: Readonly<PageLayoutProps>) {
@@ -20,6 +22,7 @@ export function PageLayout({
 
   return (
     <section className={cn(styles.page, !hasHeader && styles.withoutHeader, className)}>
+      {breadcrumbs}
       {hasHeader ? <header className={styles.header}>{header}</header> : null}
       <div className={cn(styles.content, contentClassName)}>{children}</div>
     </section>

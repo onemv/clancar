@@ -1,4 +1,6 @@
 import styles from "./DashboardScreen.module.scss";
+import { Breadcrumbs } from "@/components/Breadcrumbs/Breadcrumbs";
+import { routes } from "@/constants/routes";
 import { WorkspaceShell } from "@/layers/WorkspaceShell/WorkspaceShell";
 import { PageLayout } from "@/layers/PageLayout/PageLayout";
 import sectionStyles from "@/components/WorkspaceSection/WorkspaceSection.module.scss";
@@ -9,6 +11,7 @@ export function DashboardScreen() {
     <WorkspaceShell>
       <PageLayout
         header={<h1 className={styles.pageTitle}>Дашборд</h1>}
+        breadcrumbs={<Breadcrumbs items={[{ label: "Дашборд", href: routes.dashboard, current: true }]} />}
         contentClassName={sectionStyles.workspaceSections}
       >
         <WorkspaceSection className={styles.metricCard} size="1/5">

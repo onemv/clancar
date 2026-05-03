@@ -1,0 +1,587 @@
+.root {
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr);
+  gap: 16px;
+  min-height: 0;
+  height: 100%;
+}
+
+.header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.title {
+  margin: 0;
+  color: var(--color-text-primary);
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.description {
+  margin: 6px 0 0;
+  color: var(--color-text-secondary);
+  font-size: 13px;
+  line-height: 1.45;
+}
+
+.dropzone {
+  display: grid;
+  align-content: stretch;
+  min-height: 240px;
+  height: 100%;
+  padding: 24px;
+  border: 1px dashed var(--color-border-strong);
+  border-radius: var(--radius-lg);
+  background:
+    linear-gradient(
+      180deg,
+      color-mix(in srgb, var(--color-bg-surface) 96%, transparent),
+      color-mix(in srgb, var(--color-bg-elevated) 92%, transparent)
+    );
+  transition:
+    border-color 160ms ease,
+    background-color 160ms ease,
+    box-shadow 160ms ease;
+}
+
+.dropzoneFilled {
+  padding: 12px;
+}
+
+.dropzoneContent {
+  display: grid;
+  gap: 18px;
+  width: 100%;
+  min-height: 0;
+  height: 100%;
+  align-content: start;
+}
+
+.dropzoneFilled .dropzoneContent {
+  gap: 0;
+}
+
+.dragging {
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 3px var(--color-accent-soft);
+}
+
+.dropzoneBody {
+  display: grid;
+  gap: 8px;
+  justify-items: center;
+  text-align: center;
+}
+
+.dropzoneTitle {
+  color: var(--color-text-primary);
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.dropzoneHint {
+  max-width: 52ch;
+  margin: 0;
+  color: var(--color-text-muted);
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.grid {
+  display: grid;
+  gap: 12px;
+  justify-content: start;
+  align-content: start;
+  grid-template-columns: repeat(auto-fill, minmax(132px, 1fr));
+}
+
+.card {
+  position: relative;
+  min-width: 0;
+  border: 1px solid var(--color-border-soft);
+  border-radius: var(--radius-md);
+  background: color-mix(in srgb, var(--color-bg-surface) 88%, transparent);
+  overflow: hidden;
+  cursor: grab;
+  transition:
+    border-color 160ms ease,
+    box-shadow 160ms ease,
+    opacity 160ms ease;
+}
+
+.card:active {
+  cursor: grabbing;
+}
+
+.cardDragging {
+  z-index: 1;
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 3px var(--color-accent-soft);
+  opacity: 0.88;
+}
+
+.preview {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  background-color: var(--color-bg-elevated);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.dragArea {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  cursor: grab;
+}
+
+.dragArea:active {
+  cursor: grabbing;
+}
+
+.dragAreaDisabled {
+  pointer-events: none;
+}
+
+.orderBadge {
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  min-width: 18px;
+  height: 18px;
+  padding: 0 5px;
+  border-radius: 5px;
+  background: var(--color-bg-surface);
+  color: var(--color-text-primary);
+  font-size: 10px;
+  font-weight: 600;
+  line-height: 18px;
+  text-align: center;
+}
+
+.orderCrown {
+  color: #f3c84b;
+  flex: 0 0 auto;
+  filter:
+    drop-shadow(0 0 2px color-mix(in srgb, #f3c84b 68%, transparent))
+    drop-shadow(0 0 6px color-mix(in srgb, #f3c84b 44%, transparent));
+}
+
+:global(html[data-theme="light"]) .orderCrown {
+  color: #b67a11;
+  filter:
+    drop-shadow(0 0 2px color-mix(in srgb, #d79a2a 58%, transparent))
+    drop-shadow(0 0 5px color-mix(in srgb, #d79a2a 36%, transparent));
+}
+
+:global(html[data-theme="dark"]) .orderBadge {
+  background: rgba(12, 14, 16, 0.92);
+  color: #f3f5f7;
+}
+
+:global(html[data-theme="light"]) .orderBadge {
+  background: rgba(255, 255, 255, 0.94);
+  color: #0d0f11;
+}
+
+.actions {
+  position: absolute;
+  right: 4px;
+  bottom: 4px;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  cursor: default;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translateY(4px) scale(0.98);
+  transition:
+    opacity 140ms ease,
+    transform 180ms ease,
+    visibility 0ms linear 180ms;
+}
+
+.preview:hover .actions,
+.preview:focus-within .actions,
+.actionsVisible {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateY(0) scale(1);
+  transition:
+    opacity 140ms ease,
+    transform 180ms ease,
+    visibility 0ms linear 0ms;
+}
+
+.actionMenuItems {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 0;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translateX(8px) scale(0.96);
+  transform-origin: right center;
+  transition:
+    opacity 160ms ease,
+    transform 220ms cubic-bezier(0.2, 0.8, 0.2, 1),
+    visibility 0ms linear 220ms;
+}
+
+.actionMenuItemsOpen {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateX(0) scale(1);
+  transition:
+    opacity 160ms ease,
+    transform 220ms cubic-bezier(0.2, 0.8, 0.2, 1),
+    visibility 0ms linear 0ms;
+}
+
+.actionMenuItems .actionButton {
+  opacity: 0;
+  transform: translateX(8px) scale(0.9);
+  transition:
+    border-color 160ms ease,
+    background-color 160ms ease,
+    color 160ms ease,
+    opacity 180ms ease,
+    transform 220ms cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.actionMenuItemsOpen .actionButton {
+  opacity: 1;
+  transform: translateX(0) scale(1);
+}
+
+.actionMenuItemsOpen .actionButton:nth-child(1) {
+  transition-delay: 80ms;
+}
+
+.actionMenuItemsOpen .actionButton:nth-child(2) {
+  transition-delay: 40ms;
+}
+
+.actionButton {
+  display: inline-flex;
+  position: relative;
+  z-index: 2;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border: 1px solid transparent;
+  border-radius: var(--radius-sm);
+  background: var(--color-bg-surface);
+  color: var(--color-text-primary);
+  line-height: 0;
+  cursor: pointer;
+  transition:
+    border-color 160ms ease,
+    background-color 160ms ease,
+    color 160ms ease;
+  pointer-events: auto;
+}
+
+.actionMenuButton {
+  flex: 0 0 auto;
+  margin: 0;
+}
+
+.actionsOpen .actionMenuButton {
+  color: var(--color-accent);
+}
+
+.actionButton:hover {
+  color: var(--color-accent);
+  border-color: color-mix(in srgb, var(--color-accent) 58%, transparent);
+}
+
+.actionButton:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 1px;
+}
+
+.actionDanger {
+  color: var(--color-danger);
+}
+
+:global(html[data-theme="dark"]) .actionButton {
+  color: #f3f5f7;
+  background: rgba(12, 14, 16, 0.92);
+}
+
+:global(html[data-theme="light"]) .actionButton {
+  color: #0d0f11;
+  background: rgba(255, 255, 255, 0.94);
+}
+
+:global(html[data-theme="dark"]) .actionDanger {
+  color: #ff9f9f;
+}
+
+:global(html[data-theme="light"]) .actionDanger {
+  color: #b84a4a;
+}
+
+.actionDanger:hover {
+  color: var(--color-danger);
+  border-color: color-mix(in srgb, var(--color-danger) 58%, transparent);
+}
+
+:global(html[data-theme="dark"]) .actionButton:not(.actionDanger):hover,
+:global(html[data-theme="light"]) .actionButton:not(.actionDanger):hover {
+  color: var(--color-accent);
+  border-color: color-mix(in srgb, var(--color-accent) 58%, transparent);
+}
+
+:global(html[data-theme="dark"]) .actionDanger:hover {
+  color: #ff9f9f;
+  background: rgba(84, 20, 20, 0.86);
+}
+
+:global(html[data-theme="light"]) .actionDanger:hover {
+  color: #b84a4a;
+  background: rgba(255, 230, 230, 0.94);
+}
+
+.viewerLayout {
+  display: grid;
+  gap: 16px;
+  justify-items: center;
+}
+
+.viewerFrame {
+  display: grid;
+  gap: 16px;
+  justify-items: center;
+  width: max-content;
+  max-width: calc(100vw - 40px);
+}
+
+.viewerTopbar {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+}
+
+.viewerCloseButton {
+  margin: 0;
+}
+
+.viewerMeta {
+  color: var(--color-text-secondary);
+  font-size: 13px;
+  line-height: 1.4;
+  min-width: 64px;
+  text-align: center;
+}
+
+.viewerFigure {
+  margin: 0;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+
+.viewerImage {
+  display: block;
+  height: min(530px, 68dvh);
+  width: auto;
+  max-width: calc(100vw - 40px);
+  object-fit: contain;
+}
+
+.viewerBottomBar {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.viewerControls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.editorLayout {
+  display: grid;
+  gap: 16px;
+  justify-items: center;
+}
+
+.editorLayoutMobile {
+  width: 100%;
+}
+
+.editorTopbar {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.editorCloseButton {
+  margin: 0;
+}
+
+.editorCanvas {
+  display: grid;
+  place-items: center;
+}
+
+.editorCanvasFrame {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  max-width: 100%;
+}
+
+.editorToolbar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.editorActions {
+  display: flex;
+  align-items: center;
+}
+
+.editorPrimaryTools {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.editorDeleteTool {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  width: 0;
+  margin-left: 0;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateX(-6px) scale(0.94);
+  pointer-events: none;
+  transition:
+    width 220ms ease,
+    margin-left 220ms ease,
+    opacity 180ms ease,
+    transform 220ms ease;
+}
+
+.editorDeleteToolVisible {
+  width: 34px;
+  margin-left: 8px;
+  opacity: 1;
+  transform: translateX(0) scale(1);
+  pointer-events: auto;
+}
+
+.editorToolActive {
+  color: var(--color-accent);
+  border-color: var(--color-accent);
+  background: color-mix(in srgb, var(--color-accent) 22%, var(--color-bg-surface));
+  box-shadow: 0 0 0 1px color-mix(in srgb, var(--color-accent) 28%, transparent);
+}
+
+.editorStage {
+  display: block;
+  max-width: 100%;
+}
+
+.editorStage :global(canvas) {
+  display: block;
+  border: 0;
+  outline: 0;
+}
+
+.editorLoading {
+  color: var(--color-text-secondary);
+  font-size: 14px;
+}
+
+.editorSaveRow {
+  opacity: 0;
+  transform: translateY(-6px);
+  pointer-events: none;
+  transition:
+    opacity 180ms ease,
+    transform 220ms ease;
+}
+
+.editorSaveRowVisible {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.editorSaveButton {
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  .editorLayout {
+    width: 100%;
+    gap: 12px;
+  }
+
+  .editorTopbar,
+  .editorToolbar,
+  .editorSaveRow {
+    width: 100%;
+  }
+
+  .editorTopbar {
+    justify-content: center;
+  }
+
+  .editorCanvas {
+    width: 100%;
+    overflow-x: hidden;
+  }
+
+  .editorActions {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .editorPrimaryTools {
+    gap: 6px;
+  }
+
+  .editorDeleteToolVisible {
+    margin-left: 6px;
+  }
+
+  .editorToolbar,
+  .editorSaveRow {
+    grid-template-columns: 1fr;
+  }
+
+  .editorToolbar,
+  .editorSaveRow,
+  .viewerControls {
+    display: grid;
+  }
+
+  .viewerControls {
+    grid-auto-flow: column;
+    justify-content: center;
+  }
+}

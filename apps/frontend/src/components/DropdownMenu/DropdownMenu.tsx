@@ -208,9 +208,36 @@ export function DropdownMenu(props: Readonly<Props>) {
             }}
             onKeyDown={handleInputKeyDown}
           />
-          <span className={styles.icon} aria-hidden="true">
+          <button
+            className={styles.iconButton}
+            type="button"
+            tabIndex={-1}
+            aria-hidden="true"
+            disabled={disabled}
+            onMouseDown={(event) => {
+              event.preventDefault();
+            }}
+            onClick={(event) => {
+              event.preventDefault();
+              event.stopPropagation();
+
+              if (disabled) {
+                return;
+              }
+
+              setOpen((current) => {
+                const nextOpen = !current;
+
+                if (!nextOpen) {
+                  setQuery("");
+                }
+
+                return nextOpen;
+              });
+            }}
+          >
             <ArrowDown01Icon size={16} />
-          </span>
+          </button>
         </div>
       }
       open={open}

@@ -1,0 +1,88 @@
+.header {
+  display: grid;
+  gap: 15px;
+}
+
+.pageTitle {
+  margin: 0;
+  color: var(--color-text-primary);
+  font-size: 23px;
+  line-height: 1;
+  letter-spacing: -0.5px;
+}
+
+.steps {
+  width: min(100%, 1000px);
+}
+
+.mainInfoSection {
+  display: grid;
+}
+
+.mainInfoGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--space-5);
+}
+
+.field {
+  display: grid;
+  gap: var(--space-2);
+  min-width: 0;
+}
+
+.label {
+  color: var(--color-text-secondary);
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.control {
+  width: 100%;
+  min-width: 0;
+}
+
+.control :global(input) {
+  width: 100%;
+}
+
+@media (min-width: 900px) {
+  .mainInfoGrid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .mediaLayout {
+    grid-template-rows: repeat(2, minmax(0, 1fr));
+    min-height: calc(100dvh - 242px);
+    align-content: stretch;
+  }
+
+  .photoSection {
+    grid-column: span 36;
+    grid-row: 1 / span 2;
+    min-height: 0;
+    display: flex;
+  }
+
+  .photoDropzone {
+    flex: 1 1 auto;
+  }
+
+  .sideSection {
+    grid-column: 37 / span 24;
+    min-height: 0;
+    display: flex;
+  }
+
+  .sideSectionTop {
+    grid-row: 1;
+  }
+
+  .sideSectionBottom {
+    grid-row: 2;
+  }
+
+  .sideDropzone {
+    flex: 1 1 auto;
+  }
+}

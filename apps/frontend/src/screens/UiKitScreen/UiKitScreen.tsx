@@ -11,16 +11,19 @@ import {
 
 import styles from "./UiKitScreen.module.scss";
 import { BrandMark } from "@/components/BrandMark/BrandMark";
+import { Breadcrumbs } from "@/components/Breadcrumbs/Breadcrumbs";
 import { Button } from "@/components/Button/Button";
 import { Dropdown } from "@/components/Dropdown/Dropdown";
 import { DropdownMenu } from "@/components/DropdownMenu/DropdownMenu";
 import { IconButton } from "@/components/IconButton/IconButton";
 import { Input } from "@/components/Input/Input";
 import { NavItem } from "@/components/NavItem/NavItem";
+import { Tabs } from "@/components/Tabs/Tabs";
 import { ThemeSwitch } from "@/components/ThemeSwitch/ThemeSwitch";
 import { UserBadge } from "@/components/UserBadge/UserBadge";
 import sectionStyles from "@/components/WorkspaceSection/WorkspaceSection.module.scss";
 import { WorkspaceSection } from "@/components/WorkspaceSection/WorkspaceSection";
+import { routes } from "@/constants/routes";
 import { PageLayout } from "@/layers/PageLayout/PageLayout";
 import { WorkspaceShell } from "@/layers/WorkspaceShell/WorkspaceShell";
 import { cn } from "@/lib/cn";
@@ -103,6 +106,7 @@ export function UiKitScreen() {
   const collapsed = useSidebarStore((state) => state.collapsed);
   const setCollapsed = useSidebarStore((state) => state.setCollapsed);
   const [dynamicSectionSize, setDynamicSectionSize] = useState<WorkspaceDemoSize>("1/2");
+  const [activeCarStep, setActiveCarStep] = useState("media");
 
   const statusOptions = [
     { value: "new", label: "Новый лот" },
@@ -122,6 +126,12 @@ export function UiKitScreen() {
     { value: "3/5", label: "3/5" },
     { value: "4/5", label: "4/5" }
   ];
+  const carFormSteps = [
+    { value: "media", label: "Медиа" },
+    { value: "main", label: "Основная информация" },
+    { value: "equipment", label: "Комплектация" },
+    { value: "damages", label: "Повреждения" }
+  ];
 
   return (
     <WorkspaceShell>
@@ -135,6 +145,14 @@ export function UiKitScreen() {
               затем поля, действия и элементы оболочки.
             </p>
           </>
+        }
+        breadcrumbs={
+          <Breadcrumbs
+            items={[
+              { label: "Дашборд", href: routes.dashboard },
+              { label: "UI Kit", href: routes.uiKit, current: true }
+            ]}
+          />
         }
         contentClassName={cn(sectionStyles.workspaceSections, styles.layout)}
       >
@@ -211,6 +229,17 @@ export function UiKitScreen() {
                 placeholder="Выберите статусы"
                 defaultValues={["inspection", "auction"]}
               />
+            </DemoCard>
+
+            <DemoCard title="Tabs" hint="Свободное переключение между этапами формы">
+              <div className={styles.tabsPreview}>
+                <Tabs
+                  options={carFormSteps}
+                  value={activeCarStep}
+                  onValueChange={setActiveCarStep}
+                />
+                <p className={styles.tabsMeta}>Активный этап: {activeCarStep}</p>
+              </div>
             </DemoCard>
           </div>
         </Group>

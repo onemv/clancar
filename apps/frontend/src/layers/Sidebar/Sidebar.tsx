@@ -1,11 +1,20 @@
 "use client";
 
-import { DashboardSquare01Icon, PanelLeftCloseIcon, PanelLeftOpenIcon } from "hugeicons-react";
+import {
+  AddSquareIcon,
+  Car05Icon,
+  CarParking02Icon,
+  DashboardSquare01Icon,
+  Money03Icon,
+  PanelLeftCloseIcon,
+  PanelLeftOpenIcon
+} from "hugeicons-react";
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import { usePathname } from "next/navigation";
 
 import styles from "./Sidebar.module.scss";
+import { NavExpandableItem } from "@/components/NavExpandableItem/NavExpandableItem";
 import { IconButton } from "@/components/IconButton/IconButton";
 import { NavItem } from "@/components/NavItem/NavItem";
 import { routes } from "@/constants/routes";
@@ -76,6 +85,45 @@ export function Sidebar() {
             collapsed={collapsed}
             showLabel={showDetails}
             icon={<DashboardSquare01Icon size={18} />}
+          />
+          {collapsed ? (
+            <NavItem
+              href={routes.carsMy}
+              label="Автомобили"
+              active={pathname === routes.carsMy || pathname === routes.carsAdd}
+              collapsed={collapsed}
+              showLabel={showDetails}
+              icon={<Car05Icon size={18} />}
+            />
+          ) : (
+            <NavExpandableItem
+              label="Автомобили"
+              collapsed={collapsed}
+              showLabel={showDetails}
+              icon={<Car05Icon size={18} />}
+              items={[
+                {
+                  href: routes.carsMy,
+                  label: "Мои автомобили",
+                  icon: <CarParking02Icon size={16} />,
+                  active: pathname === routes.carsMy
+                },
+                {
+                  href: routes.carsAdd,
+                  label: "Добавть автомобиль",
+                  icon: <AddSquareIcon size={16} />,
+                  active: pathname === routes.carsAdd
+                }
+              ]}
+            />
+          )}
+          <NavItem
+            href={routes.buyout}
+            label="Выкуп"
+            active={pathname === routes.buyout}
+            collapsed={collapsed}
+            showLabel={showDetails}
+            icon={<Money03Icon size={18} />}
           />
         </nav>
       </div>
